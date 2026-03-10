@@ -133,7 +133,9 @@ def build_config(args):
     from hydra import compose, initialize_config_dir
     from omegaconf import OmegaConf
 
-    project_root = Path(__file__).resolve().parents[4]
+    project_root = Path(__file__).resolve()
+    while not (project_root / "verl").is_dir() and project_root.parent != project_root:
+        project_root = project_root.parent
     config_dir = str(project_root / "verl" / "trainer" / "config")
 
     with initialize_config_dir(config_dir=config_dir, version_base=None):
