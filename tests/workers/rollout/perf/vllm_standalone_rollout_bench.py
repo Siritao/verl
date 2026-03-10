@@ -68,8 +68,8 @@ def parse_args():
     parser.add_argument("--rollout_ns", type=str, default="1", help="Comma-separated rollout.n values")
 
     parser.add_argument("--data_source", type=str, default="random", help="'random' or path to parquet")
-    parser.add_argument("--prompt_length", type=int, default=65536, help="Max prompt token length")
-    parser.add_argument("--response_length", type=int, default=65536, help="Max response token length")
+    parser.add_argument("--prompt_length", type=int, default=512, help="Max prompt token length")
+    parser.add_argument("--response_length", type=int, default=3072, help="Max response token length")
 
     parser.add_argument("--num_warmup_steps", type=int, default=1, help="Warmup batches before timing")
     parser.add_argument("--num_bench_steps", type=int, default=2, help="Timed benchmark batches")

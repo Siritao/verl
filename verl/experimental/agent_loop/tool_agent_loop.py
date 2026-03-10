@@ -240,7 +240,9 @@ class ToolAgentLoop(AgentLoopBase):
             prev_count = agent_data.metrics.get("_tpot_total_tokens", 0)
             agent_data.metrics["_tpot_total_time"] = prev_total + (last_ts - first_ts)
             agent_data.metrics["_tpot_total_tokens"] = prev_count + (n_tokens - 1)
-            agent_data.metrics["tpot"] = agent_data.metrics["_tpot_total_time"] / agent_data.metrics["_tpot_total_tokens"]
+            agent_data.metrics["tpot"] = (
+                agent_data.metrics["_tpot_total_time"] / agent_data.metrics["_tpot_total_tokens"]
+            )
         elif agent_data.metrics.get("tpot") is None:
             agent_data.metrics["tpot"] = -1
 
